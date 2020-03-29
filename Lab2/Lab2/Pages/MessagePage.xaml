@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvx:MvxContentPage  xmlns:mvx="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+                     xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     mc:Ignorable="d"
+                     x:Class="Lab2.Pages.MessagePage"
+                     xmlns:viewModels="clr-namespace:Lab2.Core.ViewModels;assembly=Lab2.Core"
+                     x:TypeArguments="viewModels:MessagePageViewModel"
+                     Title="Message">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                 <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Orientation="Horizontal" Padding="10">
+                <Label Text="From"
+                       FontAttributes="Bold"
+                       FontSize="18"/>
+                <Label Text="{Binding Message.From}"
+                       FontSize="18"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Orientation="Horizontal" Padding="10">
+                <Label Text="Subject"
+                       FontAttributes="Bold"
+                       FontSize="18"/>
+                <Label Text="{Binding Message.Title}"
+                       FontSize="18"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Orientation="Horizontal" Padding="10">
+                <Label Text="Message"
+                       FontAttributes="Bold"
+                       FontSize="18"/>
+                <Label Text="{Binding Message.Body}"
+                       FontSize="18"/>
+            </StackLayout>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</mvx:MvxContentPage>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvx:MvxContentPage  xmlns:mvx="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+                     xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     mc:Ignorable="d"
+                     x:Class="Lab2.Pages.InboxPage"
+                     xmlns:viewModels="clr-namespace:Lab2.Core.ViewModels;assembly=Lab2.Core"
+                     x:TypeArguments="viewModels:InboxPageViewModel"
+                     Title="Inbox">
+    <ContentPage.Content>
+        <mvx:MvxListView ItemsSource="{Binding Messages}"
+                         HasUnevenRows="True"
+                         SelectionMode="None"
+                         x:Name="List">
+            <mvx:MvxListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding From}" Grid.Column="0"/>
+                            <Label Text="{Binding Title}" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Label Text="{Binding Date}" Grid.Column="4"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </mvx:MvxListView.ItemTemplate>
+        </mvx:MvxListView>
+    </ContentPage.Content>
+</mvx:MvxContentPage>
